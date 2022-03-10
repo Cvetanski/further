@@ -8,7 +8,7 @@ interface VenueRepositoryInterface
 {
     public function all(): array;
 
-    public function get(int $id): ?Venue;
+    public function allBetweenFridays(): array;
 
     public function store(Venue $venue);
 

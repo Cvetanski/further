@@ -13,10 +13,11 @@ use Illuminate\Support\Carbon;
 
 class VenueController extends Controller
 {
-    public function index()
+    public function index(VenueRepositoryInterface  $venueRepository)
     {
         return response()->json([
-            'All Venues'=>Venue::whereBetween('updated_at',[Carbon::parse('last friday')->startOfDay(),Carbon::parse('next friday')->endOfDay()])->get()
+            'message' => 'Here is the all Venues',
+            $venueRepository->allBetweenFridays()
         ]);
     }
 
